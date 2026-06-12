@@ -368,14 +368,51 @@ if (error) {
         `Verify ownership at ${Date.now()}`;
 
       const provider =
-        new ethers.BrowserProvider(window.ethereum);
+  new ethers.BrowserProvider(
+    window.ethereum
+  );
 
-      const contract =
-        new ethers.Contract(
-          CONTRACT_ADDRESS,
-          abi,
-          provider
-        );
+const network =
+  await provider.getNetwork();
+
+console.log(
+  "Chain ID:",
+  Number(network.chainId)
+);
+
+console.log(
+  "Contract Address:",
+  CONTRACT_ADDRESS
+);
+
+console.log(
+  "Generated Verify Hash:",
+  hash
+);
+
+const code =
+  await provider.getCode(
+    CONTRACT_ADDRESS
+  );
+
+console.log(
+  "Contract Code:",
+  code
+);
+
+const contract =
+  new ethers.Contract(
+    CONTRACT_ADDRESS,
+    abi,
+    provider
+  );
+
+const result =
+  await contract.verifyCredential(
+    hash
+  );
+
+      
       
 
       const signer =
