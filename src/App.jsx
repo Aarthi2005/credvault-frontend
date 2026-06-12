@@ -305,69 +305,6 @@ if (error) {
       setGeneratedHash(hash);
 
       const provider =
-        new ethers.BrowserProvider(
-          window.ethereum
-        );
-
-      const contract =
-        new ethers.Contract(
-          CONTRACT_ADDRESS,
-          abi,
-          provider
-        );
-
-      console.log("Contract Address:", CONTRACT_ADDRESS);
-
-      const network =
-        await provider.getNetwork();
-
-      console.log("Chain ID:", network.chainId);
-
-      console.log("Hash:", hash);
-
-      const result =
-        await contract.verifyCredential(
-          hash
-        );
-
-      setCertificate({
-        exists: result[0],
-        revoked: result[1],
-        studentWallet: result[2],
-        ipfsCID: result[3],
-        issuedAt: new Date(
-          Number(result[4]) * 1000
-        ).toLocaleString(),
-      });
-
-      setOwnershipStatus("");
-
-    } catch (error) {
-      console.error(error);
-      alert(error.message);
-    }
-  };
-
-  const verifyOwnership = async () => {
-    try {
-      if (!certificate) {
-        alert(
-          "Verify certificate first"
-        );
-        return;
-      }
-
-      if (!certificate.exists) {
-        alert(
-          "Certificate not found"
-        );
-        return;
-      }
-
-      const challenge =
-        `Verify ownership at ${Date.now()}`;
-
-      const provider =
   new ethers.BrowserProvider(
     window.ethereum
   );
@@ -411,6 +348,50 @@ const result =
   await contract.verifyCredential(
     hash
   );
+
+      setCertificate({
+        exists: result[0],
+        revoked: result[1],
+        studentWallet: result[2],
+        ipfsCID: result[3],
+        issuedAt: new Date(
+          Number(result[4]) * 1000
+        ).toLocaleString(),
+      });
+
+      setOwnershipStatus("");
+
+    } catch (error) {
+      console.error(error);
+      alert(error.message);
+    }
+  };
+
+  const verifyOwnership = async () => {
+    try {
+      if (!certificate) {
+        alert(
+          "Verify certificate first"
+        );
+        return;
+      }
+
+      if (!certificate.exists) {
+        alert(
+          "Certificate not found"
+        );
+        return;
+      }
+
+      const challenge =
+        `Verify ownership at ${Date.now()}`;
+
+      const provider =
+  new ethers.BrowserProvider(
+    window.ethereum
+  );
+
+
 
       
       
