@@ -215,25 +215,6 @@ if (error) {
         signer
       );
 
-    const existingCredential =
-      await contract.verifyCredential(
-        hash
-      );
-
-    if (!existingCredential[0]) {
-      setRevokeStatus(
-        "Certificate does not exist ❌"
-      );
-      return;
-    }
-
-    if (existingCredential[1]) {
-      setRevokeStatus(
-        "Certificate already revoked ❌"
-      );
-      return;
-    }
-
     setRevokeStatus(
       "Waiting for MetaMask confirmation..."
     );
