@@ -131,8 +131,33 @@ function App() {
       // Check if credential already exists
       
 
+      // Check if credential already exists
+try {
+  const existingCredential =
+    await contract.verifyCredential(
+      hash
+    );
+
+  if (existingCredential[0]) {
+    alert(
+      "Certificate already exists on blockchain"
+    );
+
+    setIssueStatus(
+      "Certificate already exists ❌"
+    );
+
+    return;
+  }
+} catch (err) {
+  console.log(
+    "Duplicate check skipped:",
+    err
+  );
+}
+
 setIssueStatus(
-"Waiting for MetaMask confirmation..."
+  "Waiting for MetaMask confirmation..."
 );
 
 
@@ -383,9 +408,6 @@ if (error) {
   <div className="app">
 
     <div className="hero-section">
-      <h1 className="title">
-        BUILD TEST 12-JUN-2026
-      </h1>
       <h2 className="title">
         Blockchain Credential Vault
       </h2>
