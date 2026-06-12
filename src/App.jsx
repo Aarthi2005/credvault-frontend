@@ -383,7 +383,9 @@ if (error) {
   <div className="app">
 
     <div className="hero-section">
-      <h1>BUILD TEST 12-JUN-2026</h1>
+      <h1 className="title">
+        BUILD TEST 12-JUN-2026
+      </h1>
       <h2 className="title">
         Blockchain Credential Vault
       </h2>
