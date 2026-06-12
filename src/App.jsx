@@ -316,8 +316,14 @@ if (error) {
           provider
         );
 
-      console.log("Generated Verify Hash:", hash);
       console.log("Contract Address:", CONTRACT_ADDRESS);
+
+      const network =
+        await provider.getNetwork();
+
+      console.log("Chain ID:", network.chainId);
+
+      console.log("Hash:", hash);
 
       const result =
         await contract.verifyCredential(
@@ -362,9 +368,15 @@ if (error) {
         `Verify ownership at ${Date.now()}`;
 
       const provider =
-        new ethers.BrowserProvider(
-          window.ethereum
+        new ethers.BrowserProvider(window.ethereum);
+
+      const contract =
+        new ethers.Contract(
+          CONTRACT_ADDRESS,
+          abi,
+          provider
         );
+      
 
       const signer =
         await provider.getSigner();
