@@ -312,6 +312,13 @@ if (error) {
 const network =
   await provider.getNetwork();
 
+if (Number(network.chainId) !== 80002) {
+  alert(
+    "Please switch MetaMask to Polygon Amoy Testnet"
+  );
+  return;
+}
+
 console.log(
   "Chain ID:",
   Number(network.chainId)
