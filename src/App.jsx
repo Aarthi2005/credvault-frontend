@@ -129,22 +129,7 @@ function App() {
         );
 
       // Check if credential already exists
-      const existingCredential =
-      await contract.verifyCredential(
-      hash
-      );
-
-      if (existingCredential[0]) {
-      alert(
-        "Certificate already exists on blockchain"
-      );
-
-      setIssueStatus(
-      "Certificate already exists ❌"
-      );
-
-      return;
-}
+      
 
 setIssueStatus(
 "Waiting for MetaMask confirmation..."
