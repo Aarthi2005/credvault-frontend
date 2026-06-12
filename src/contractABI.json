@@ -1,5 +1,18 @@
 [
 	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "university",
+				"type": "address"
+			}
+		],
+		"name": "addUniversity",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
@@ -55,6 +68,42 @@
 		"type": "event"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "credentialHash",
+				"type": "bytes32"
+			},
+			{
+				"internalType": "address",
+				"name": "studentWallet",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "ipfsCID",
+				"type": "string"
+			}
+		],
+		"name": "issueCredential",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes32",
+				"name": "credentialHash",
+				"type": "bytes32"
+			}
+		],
+		"name": "revokeCredential",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -66,19 +115,6 @@
 		],
 		"name": "UniversityAdded",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "university",
-				"type": "address"
-			}
-		],
-		"name": "addUniversity",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"inputs": [
@@ -120,29 +156,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "credentialHash",
-				"type": "bytes32"
-			},
-			{
-				"internalType": "address",
-				"name": "studentWallet",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "ipfsCID",
-				"type": "string"
-			}
-		],
-		"name": "issueCredential",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "owner",
 		"outputs": [
@@ -153,19 +166,6 @@
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bytes32",
-				"name": "credentialHash",
-				"type": "bytes32"
-			}
-		],
-		"name": "revokeCredential",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
