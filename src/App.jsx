@@ -316,6 +316,9 @@ if (error) {
           provider
         );
 
+      console.log("Generated Verify Hash:", hash);
+      console.log("Contract Address:", CONTRACT_ADDRESS);
+
       const result =
         await contract.verifyCredential(
           hash
