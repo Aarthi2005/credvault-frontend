@@ -6,7 +6,7 @@ import "./App.css";
 import abi from "./contractABI.json";
 import { CONTRACT_ADDRESS } from "./contract";
 import supabase from "./supabase";
-<h1>BUILD TEST 12-JUN-2026</h1>
+
 
 
 function App() {
@@ -383,6 +383,7 @@ if (error) {
   <div className="app">
 
     <div className="hero-section">
+      <h1>BUILD TEST 12-JUN-2026</h1>
       <h2 className="title">
         Blockchain Credential Vault
       </h2>
