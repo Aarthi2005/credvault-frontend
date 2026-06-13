@@ -10,7 +10,7 @@ import supabase from "./supabase";
 
 
 function App() {
-  const [account, setAccount] = useState("");
+  //const [account, setAccount] = useState("");
   const [file, setFile] = useState(null);
 
   const [studentWallet, setStudentWallet] = useState("");
@@ -25,22 +25,22 @@ function App() {
 
   const [studentName, setStudentName] = useState("");
 
-  const connectWallet = async () => {
-    try {
-      if (!window.ethereum) {
-        alert("Please install MetaMask");
-        return;
-      }
+  //const connectWallet = async () => {
+  //  try {
+  //    if (!window.ethereum) {
+  //      alert("Please install MetaMask");
+  //      return;
+  //    }
 
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
+  //    const accounts = await window.ethereum.request({
+  //      method: "eth_requestAccounts",
+  //    });
 
-      setAccount(accounts[0]);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //    setAccount(accounts[0]);
+  //  } catch (error) {
+  //    console.error(error);
+  //  }
+  //};//
 
   const generateHash = async (selectedFile) => {
     const arrayBuffer = await selectedFile.arrayBuffer();
@@ -451,19 +451,6 @@ const result =
       <h2 className="title">
         Blockchain Credential Vault
       </h2>
-
-      <button
-        className="primary-btn"
-        onClick={connectWallet}
-      >
-        Connect MetaMask
-      </button>
-
-      <div className="wallet-card">
-        {account
-          ? account
-          : "Wallet Not Connected"}
-      </div>
     </div>
 
     <div className="glass">
